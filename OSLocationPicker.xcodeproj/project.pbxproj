@@ -12,6 +12,8 @@
 		3C0231611E90C52400529FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C02315F1E90C52400529FB9 /* Main.storyboard */; };
 		3C0231631E90C52400529FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0231621E90C52400529FB9 /* Assets.xcassets */; };
 		3C0231661E90C52400529FB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0231641E90C52400529FB9 /* LaunchScreen.storyboard */; };
+		3C78D5651E917FA900B11E8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C78D5641E917FA900B11E8D /* CoreLocation.framework */; };
+		3CEC62BF1E918F7300656D5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEC62BE1E918F7300656D5B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3C0231621E90C52400529FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C0231651E90C52400529FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C0231671E90C52400529FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C78D5641E917FA900B11E8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3CEC62BE1E918F7300656D5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEC62BF1E918F7300656D5B /* MapKit.framework in Frameworks */,
+				3C78D5651E917FA900B11E8D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				3C02315A1E90C52300529FB9 /* OSLocationPicker */,
 				3C0231591E90C52300529FB9 /* Products */,
+				3C78D5631E917FA900B11E8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +69,15 @@
 				3C0231671E90C52400529FB9 /* Info.plist */,
 			);
 			path = OSLocationPicker;
+			sourceTree = "<group>";
+		};
+		3C78D5631E917FA900B11E8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CEC62BE1E918F7300656D5B /* MapKit.framework */,
+				3C78D5641E917FA900B11E8D /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +113,14 @@
 					3C0231571E90C52300529FB9 = {
 						CreatedOnToolsVersion = 8.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -301,6 +325,7 @@
 				3C02316C1E90C52400529FB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

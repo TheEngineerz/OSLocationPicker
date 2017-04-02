@@ -8,12 +8,29 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var locationManager:CLLocationManager?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if locationManager == nil{
+            locationManager = CLLocationManager()
+            locationManager?.requestWhenInUseAuthorization()
+            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager?.distanceFilter = 100
+            locationManager?.delegate = self
+
+            locationManager?.startUpdatingLocation()
+        }
+        
+        mapView.showsUserLocation = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,5 +39,13 @@ class ViewController: UIViewController {
     }
 
 
+}
+extension ViewController:CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count>0 {
+            let location = locations.last
+            mapView.region = MKCoordinateRegionMakeWithDistance(location!.coordinate, 100, 100)
+        }
+    }
 }
 
